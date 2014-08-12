@@ -12,7 +12,6 @@
 use JFusion\Factory;
 use JFusion\Framework;
 use JFusion\User\Userinfo;
-use JFusion\Plugin\Plugin_User;
 
 use Joomla\Language\Text;
 
@@ -27,7 +26,7 @@ use Validate;
 
 /**
  * JFusion User Class for prestashop
- * For detailed descriptions on these functions please check Plugin_User
+ * For detailed descriptions on these functions please check \JFusion\Plugin\User
  *
  * @category   Plugins
  * @package    JFusion\Plugins
@@ -37,7 +36,7 @@ use Validate;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link       http://www.jfusion.org
  */
-class User extends Plugin_User
+class User extends \JFusion\Plugin\User
 {
 	/**
 	 * @var $helper Helper
