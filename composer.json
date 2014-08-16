@@ -1,10 +1,18 @@
 {
     "name": "jfusion/plugin-prestashop",
-    "type": "jfusion-plugin-prestashop",
+    "type": "jfusion-plugin",
     "description": "Plugin for prestashop jfusion framework",
-    "keywords": ["jfusion", "plugin", "prestashop", "framework"],
-    "homepage": "https://github.com/jfusion/org.jfusion.plugin.prestashop",
+    "keywords": ["jfusion", "plugin", "prestashop"],
+    "homepage": "http://jfusion.org",
     "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Morten Hundevad",
+            "email": "fannoj@gmail.com",
+            "homepage": "http://fanno.dk",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": ">=5.3.10"
     },
