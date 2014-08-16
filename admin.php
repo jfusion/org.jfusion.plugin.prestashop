@@ -52,11 +52,8 @@ class Admin extends \JFusion\Plugin\Admin
     function loadSetup($storePath)
     {
         //check for trailing slash and generate file path
-        if (substr($storePath, -1) == DIRECTORY_SEPARATOR) {
-            $myfile = $storePath . 'config/settings.inc.php';
-        } else {
-            $myfile = $storePath . DIRECTORY_SEPARATOR . 'config/settings.inc.php';
-        }
+	    $myfile = $storePath . 'config/settings.inc.php';
+
         $config = array();
 	    $lines = $this->readFile($myfile);
         if ($lines === false) {

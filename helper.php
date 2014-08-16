@@ -34,8 +34,8 @@ class Helper extends Plugin
 		$params = Factory::getParams($this->getJname());
 		$source_path = $params->get('source_path');
 
-		require_once($source_path . 'config' . DIRECTORY_SEPARATOR . 'settings.inc.php');
-		require_once($source_path . 'config' . DIRECTORY_SEPARATOR . 'alias.php');
+		require_once($source_path . 'config/settings.inc.php');
+		require_once($source_path . 'config/alias.php');
 
 		$this->loadClass('Context');
 
@@ -43,19 +43,20 @@ class Helper extends Plugin
 //      $this->loadClass('Rijndael'); Think this is now unneeded.
 //      $this->loadClass('Cookie'); Think this is now unneeded.
 		$this->loadClass('Tools');
-		require_once($source_path . 'tools' . DIRECTORY_SEPARATOR . 'profiling' . DIRECTORY_SEPARATOR . 'Tools.php');
+		require_once($source_path . 'tools/profiling/Tools.php');
 
 		$this->loadClass('ObjectModel');
-		require_once($source_path . 'tools' . DIRECTORY_SEPARATOR . 'profiling' . DIRECTORY_SEPARATOR . 'ObjectModel.php');
+		require_once($source_path . 'tools/profiling/ObjectModel.php');
 
-		require_once($source_path . 'classes' . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'Db.php');
-		require_once($source_path . 'tools' . DIRECTORY_SEPARATOR . 'profiling' . DIRECTORY_SEPARATOR . 'Db.php');
+		require_once($source_path . 'classes/db/Db.php');
+		require_once($source_path . 'tools/profiling/Db.php');
 
-		require_once($source_path . 'classes' . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'DbPDO.php');
-		require_once(JFUSION_PLUGIN_PATH . DIRECTORY_SEPARATOR . $this->getJname() . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'DbPDO.php');
+		require_once($source_path . 'classes/db/DbPDO.php');
 
-//		require_once($source_path . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'shop' . DIRECTORY_SEPARATOR . 'Shop.php'); Think this is now unneeded.
-//		require_once(JFUSION_PLUGIN_PATH . DIRECTORY_SEPARATOR . $this->getJname() . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'shop' . DIRECTORY_SEPARATOR . 'Shop.php'); Think this is now unneeded.
+		require_once(__DIR__ . '/classes/db/DbPDO.php');
+
+//		require_once($source_path . '/classes/shop/Shop.php'); Think this is now unneeded.
+//		require_once(__DIR__ . '/classes/shop/Shop.php'); Think this is now unneeded.
 
 		$this->loadClass('Language');
 		$this->loadClass('Validate');
@@ -73,9 +74,9 @@ class Helper extends Plugin
 		$params = Factory::getParams($this->getJname());
 		$source_path = $params->get('source_path');
 
-		require_once($source_path . 'classes' . DIRECTORY_SEPARATOR . $class . '.php');
-		if (file_exists(JFUSION_PLUGIN_PATH . DIRECTORY_SEPARATOR . $this->getJname() . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . $class . '.php')) {
-			require_once(JFUSION_PLUGIN_PATH . DIRECTORY_SEPARATOR . $this->getJname() . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . $class . '.php');
+		require_once($source_path . 'classes/' . $class . '.php');
+		if (file_exists(__DIR__ . '/classes/' . $class . '.php')) {
+			require_once(__DIR__ . '/classes/' . $class . '.php');
 		}
 	}
 
