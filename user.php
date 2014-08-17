@@ -86,7 +86,6 @@ class User extends \JFusion\Plugin\User
 			   if ($result->active) {
 				   $result->activation = '';
 			   } else {
-				   jimport('joomla.user.helper');
 				   $result->activation = Framework::getHash(Framework::genRandomPassword());
 			   }
 
