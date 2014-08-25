@@ -61,7 +61,7 @@ class User extends \JFusion\Plugin\User
 		    $query = $db->getQuery(true)
 			    ->select('id_customer as userid, email, email as username, passwd as password, firstname, lastname, active')
 			    ->from('#__customer')
-			    ->where($identifier_type . ' =' . $db->quote($identifier));
+			    ->where($db->quoteName($identifier_type) . ' =' . $db->quote($identifier));
 
 		    $db->setQuery($query);
 		    $result = $db->loadObject();
@@ -362,7 +362,7 @@ class User extends \JFusion\Plugin\User
 			// now delete the user
 			$query = $db->getQuery(true)
 				->delete('#__customer_group')
-				->where('id_customer = ' .  $existinguser->userid);
+				->where('id_customer = ' .  (int)$existinguser->userid);
 
 			$db->setQuery($query);
 			$db->execute();
