@@ -86,7 +86,7 @@ class User extends \JFusion\Plugin\User
 			   if ($result->active) {
 				   $result->activation = '';
 			   } else {
-				   $result->activation = Framework::getHash(Framework::genRandomPassword());
+				   $result->activation = Framework::getHash($this->genRandomPassword());
 			   }
 
 			    $user = new Userinfo($this->getJname());
