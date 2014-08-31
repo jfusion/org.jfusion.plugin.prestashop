@@ -143,13 +143,7 @@ class User extends \JFusion\Plugin\User
 	 * @return array
 	 */
 	function createSession(Userinfo $userinfo, $options) {
-		if (!empty($userinfo->block) || !empty($userinfo->activation)) {
-			$status['error'][] = Text::_('FUSION_BLOCKED_USER');
-		} else {
-			$params = Factory::getParams($this->getJname());
-			$status = $this->curlLogin($userinfo, $options, $params->get('brute_force'));
-		}
-		return $status;
+		return $this->curlLogin($userinfo, $options, $this->params->get('brute_force'));
 	}
 
     /**
