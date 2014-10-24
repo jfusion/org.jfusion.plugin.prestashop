@@ -11,7 +11,7 @@
  
 use JFusion\User\Userinfo;
 
-use Tools;
+use ToolsCore;
 
 /**
  * JFusion Auth Class for prestashop
@@ -39,6 +39,6 @@ class Auth extends \JFusion\Plugin\Auth
      */
     function generateEncryptedPassword(Userinfo $userinfo) {
 	    $this->helper->loadFramework();
-	    return Tools::encrypt($userinfo->password_clear);
+	    return ToolsCore::encrypt($userinfo->password_clear);
     }
 }

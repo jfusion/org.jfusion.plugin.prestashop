@@ -17,7 +17,7 @@ use Joomla\Language\Text;
 
 use Psr\Log\LogLevel;
 
-use Tools;
+use ToolsCore;
 
 use RuntimeException;
 use stdClass;
@@ -155,7 +155,7 @@ class User extends \JFusion\Plugin\User
     function updatePassword(Userinfo $userinfo, Userinfo &$existinguser) {
 	    $this->helper->loadFramework();
 
-	    $existinguser->password = Tools::encrypt($userinfo->password_clear);
+	    $existinguser->password = ToolsCore::encrypt($userinfo->password_clear);
 
 	    $db = Factory::getDatabase($this->getJname());
 
@@ -199,19 +199,19 @@ class User extends \JFusion\Plugin\User
 		    }
 
 		    if (isset($userinfo->password_clear)) {
-			    $password = Tools::encrypt($userinfo->password_clear);
+			    $password = ToolsCore::encrypt($userinfo->password_clear);
 		    } else {
 			    $password = $userinfo->password;
 		    }
 
 		    if (!Validate::isName($firstname)) {
-			    throw new RuntimeException(Tools::displayError('first name wrong'));
+			    throw new RuntimeException(ToolsCore::displayError('first name wrong'));
 		    } elseif (!Validate::isName($lastname)) {
-			    throw new RuntimeException(Tools::displayError('second name wrong'));
+			    throw new RuntimeException(ToolsCore::displayError('second name wrong'));
 		    } elseif (!Validate::isEmail($userinfo->email)) {
-			    throw new RuntimeException(Tools::displayError('e-mail not valid'));
+			    throw new RuntimeException(ToolsCore::displayError('e-mail not valid'));
 		    } elseif (!Validate::isPasswd($password)) {
-			    throw new RuntimeException(Tools::displayError('invalid password'));
+			    throw new RuntimeException(ToolsCore::displayError('invalid password'));
 		    } else {
 			    $now = date('Y-m-d h:m:s');
 			    $ps_customer = new stdClass;
